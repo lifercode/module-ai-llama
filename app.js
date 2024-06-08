@@ -13,7 +13,9 @@ app.get("/", (req, res) => {
 
 app.post("/chat", async (req, res) => {
     const result = await callToLlama({ content: req?.body?.prompt || '' })
-    res.json(result)
+    res.json({
+      text: result
+    })
 });
 
 app.listen(4444, () => {
