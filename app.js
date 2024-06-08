@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/chat", async (req, res) => {
-    const result = await callToLlama({ content: req?.body?.content || '' })
+    const result = await callToLlama({ content: req?.body?.prompt || '' })
     res.json(result)
 });
 
