@@ -1,0 +1,13 @@
+services:
+  ai-llama:
+    build: .
+    ports:
+      - "4444:4444"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
