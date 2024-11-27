@@ -12,9 +12,10 @@ app.get("/", (req, res) => {
 });
 
 app.post("/chat", async (req, res) => {
-    const result = await callToLlama({ content: req?.body?.prompt || '' })
+  console.log(req?.body?.inputsData?.prompt)
+  const result = await callToLlama({ content: req?.body?.inputsData?.prompt || '' })
     res.json({
-      text: result
+      text: JSON.stringify(JSON.parse(result))
     })
 });
 
