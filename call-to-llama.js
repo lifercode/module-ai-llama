@@ -6,6 +6,7 @@ const callToLlama = async ({ content = 'Why is the sky blue?' }) => {
   try {
     const response = await ollama.chat({
       model: 'llama3',
+      format: 'json',
       messages: [{ role: 'user', content }],
     })
   
