@@ -18,6 +18,6 @@ app.post("/chat", async (req, res) => {
     })
 });
 
-app.listen(4444, () => {
-    console.log("server started on port 4444");
+app.listen(3051, () => {
+    console.log("server started on port 3051");
 });
