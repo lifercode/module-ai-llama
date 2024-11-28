@@ -12,8 +12,12 @@ app.get("/", (req, res) => {
 });
 
 app.post("/chat", async (req, res) => {
-  console.log(req?.body?.inputsData?.prompt)
-  const result = await callToLlama({ content: req?.body?.inputsData?.prompt || '' })
+
+  const jsonPrompt = `Based on the object passed below return the same object in the following format, ${req?.body?.inputsData?.prompt}. Just return a JSON in this format, with the updated values. ${req?.body?.inputsData?.data} Respond using JSON`
+
+  const fullPrompt = req?.body?.inputsData?.data ? jsonPrompt : prompt
+
+  const result = await callToLlama({ content: fullPrompt || '' })
     res.json({
       text: JSON.stringify(JSON.parse(result))
     })
