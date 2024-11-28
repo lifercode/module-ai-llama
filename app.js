@@ -17,6 +17,9 @@ app.post("/chat", async (req, res) => {
 
   const fullPrompt = req?.body?.inputsData?.data ? jsonPrompt : prompt
 
+  console.log('jsonPrompt', jsonPrompt)
+  console.log('fullPrompt', fullPrompt)
+
   const result = await callToLlama({ content: fullPrompt || '' })
     res.json({
       text: JSON.stringify(JSON.parse(result))
